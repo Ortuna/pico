@@ -3,14 +3,15 @@ import Mercator from './Mercator'
 
 const features = WorldMap.features
 const defaults = {
-  zoom: 0,
+  zoom: 1,
   center: [0, 0],
   waterColor: '#b3d1ff',
   landColor: '#fff',
-  width: 600,
-  height: 400,
-  scale:  Math.pow(2, parseInt(0))
+  width: 325,
+  height: 300
 }
+
+defaults.scale = Math.pow(2, parseInt(defaults.zoom))
 
 const projectCoordinate = (latitude, longitude) => {
   let point = Mercator(latitude, longitude)
@@ -74,11 +75,13 @@ export default class {
     this.context.fillStyle = defaults.waterColor
     this.context.fillRect(0, 0, defaults.width, defaults.height)
 
-    this.context.fillStyle = defaults.landColor
 
     for (let i = 0; i < features.length; i++) {
       const coords = features[i].geometry.coordinates[0];
 
+      // this.context.fillStyle = defaults.landColor
+      this.context.fillStyle = '#'+Math.floor(Math.random()*16777215).toString(16)
+    
       for (let j = 0; j < coords.length; j++) {
         const point = coordinateToPoint(this.bounds, coords[j][1], coords[j][0])
 
