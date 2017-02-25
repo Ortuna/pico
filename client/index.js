@@ -1,6 +1,6 @@
 import World from 'world'
 
-window.onload =  () => {
+window.onload = () => {
   const el = document.getElementById('root')
   const world = new World(el)
 
