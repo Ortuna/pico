@@ -1,7 +1,14 @@
 import World from 'world'
 
-const el = document.getElementById('root')
-const world = new World(el)
+window.onload =  () => {
+  const el = document.getElementById('root')
+  const world = new World(el)
 
-world.draw()
+  const loop = () => {
+    world.draw()
+    window.requestAnimationFrame(loop)
+  }
+
+  loop()
+}
 // console.log(world.features[0])

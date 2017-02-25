@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const sourcePath = path.join(__dirname, './client');
 const staticsPath = path.join(__dirname, './static');
@@ -17,7 +18,7 @@ module.exports = function (env) {
     new webpack.EnvironmentPlugin({
       NODE_ENV: nodeEnv,
     }),
-    new webpack.NamedModulesPlugin(),
+    new webpack.NamedModulesPlugin()
   ];
 
   if (isProd) {
@@ -50,12 +51,18 @@ module.exports = function (env) {
     );
   }
 
+  plugins.push(
+    new ExtractTextPlugin({
+      allChunks: true,
+      filename: 'style.css',
+    })
+  )
+
   return {
     devtool: isProd ? 'source-map' : 'eval',
     context: sourcePath,
     entry: {
-      js: './index.js',
-      vendor: []
+      js: './index.js'
     },
     output: {
       path: staticsPath,
@@ -74,12 +81,12 @@ module.exports = function (env) {
           },
         },
         {
-          test: /\.css$/,
+          test: /\.scss$/,
           exclude: /node_modules/,
-          use: [
-            'style-loader',
-            'css-loader'
-          ]
+          use: ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            use: ['css-loader', 'sass-loader']
+          })
         },
         {
           test: /\.(js|jsx)$/,
@@ -91,7 +98,15 @@ module.exports = function (env) {
       ],
     },
     resolve: {
-      extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js', '.jsx'],
+      extensions: [
+        '.css',
+        '.scss',
+        '.webpack-loader.js',
+        '.web-loader.js',
+        '.loader.js',
+        '.js',
+        '.jsx'
+      ],
       modules: [
         path.resolve(__dirname, 'node_modules'),
         sourcePath

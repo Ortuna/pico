@@ -4,11 +4,12 @@ import Mercator from './Mercator'
 const features = WorldMap.features
 const defaults = {
   zoom: 1,
-  center: [0, 0],
+  center: [5, 0],
   waterColor: '#b3d1ff',
   landColor: '#fff',
-  width: 325,
-  height: 300
+  width: 400,
+  height: 300,
+  pixelationSize: 25
 }
 
 defaults.scale = Math.pow(2, parseInt(defaults.zoom))
@@ -49,50 +50,69 @@ const getBounds = () => {
   return bounds
 }
 
-const createMap = () => {
-  let map = document.createElement('canvas')
-  map.width = defaults.width
-  map.height = defaults.height
-  map.style.top = 0
-  map.style.left = 0
-  map.style.position = 'absolute'
-  return map
+const createCanvas = (width, height) => {
+  let canvas = document.createElement('canvas')
+  const context = canvas.getContext('2d')
+
+  canvas.width = width
+  canvas.height = height
+
+  return  { canvas, context }
+}
+
+let pixelationBuffer = createCanvas(defaults.width, defaults.height)
+
+const swapBuffers = (from, to) => {
+  const { canvas, context } = from
+  const width  = canvas.width  * defaults.pixelationSize * 0.01
+  const height = canvas.height * defaults.pixelationSize * 0.01
+
+  pixelationBuffer.context.drawImage(canvas, 0, 0, width, height)
+  to.context.drawImage(pixelationBuffer.canvas, 0, 0, width, height, 0, 0, canvas.width, canvas.height)
 }
 
 export default class {
   constructor(element) {
-    this.map = createMap()
+    this.map    = createCanvas(defaults.width, defaults.height)
+    this.buffer = createCanvas(defaults.width, defaults.height)
     this.bounds = getBounds()
 
-    console.log(this.bounds)
-
-    this.context = this.map.getContext('2d')
     this.element = element
-    this.element.appendChild(this.map)
+    this.element.appendChild(this.map.canvas)
+    // this.element.appendChild(this.buffer.canvas)
+
+    this.map.context.mozImageSmoothingEnabled = false
+    this.map.context.webkitImageSmoothingEnabled = false
+    this.map.context.imageSmoothingEnabled = false
+
+    this.context = this.buffer.context
   }
 
   draw() {
-    this.context.fillStyle = defaults.waterColor
-    this.context.fillRect(0, 0, defaults.width, defaults.height)
+    let context = this.context
 
+    context.fillStyle = defaults.waterColor
+    context.fillRect(0, 0, defaults.width, defaults.height)
 
     for (let i = 0; i < features.length; i++) {
       const coords = features[i].geometry.coordinates[0];
 
       // this.context.fillStyle = defaults.landColor
-      this.context.fillStyle = '#'+Math.floor(Math.random()*16777215).toString(16)
-    
+      context.fillStyle = '#'+Math.floor(Math.random()*16777215).toString(16)
+
       for (let j = 0; j < coords.length; j++) {
         const point = coordinateToPoint(this.bounds, coords[j][1], coords[j][0])
 
         if (j === 0) {
-          this.context.beginPath()
-          this.context.moveTo(point.x, point.y)
+          context.beginPath()
+          context.moveTo(point.x, point.y)
         } else {
-          this.context.lineTo(point.x, point.y)
+          context.lineTo(point.x, point.y)
         }
       }
-      this.context.fill()
+      context.fill()
     }
+
+    swapBuffers(this.buffer, this.map)
   }
 }
