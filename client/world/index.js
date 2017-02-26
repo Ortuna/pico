@@ -4,15 +4,17 @@ import System from './Utils/System'
 import Coordinate from './Systems/Coordinate'
 import Canvas from './Systems/Canvas'
 import Map from './Systems/Map'
+import Player from './Systems/Player'
 
 import WorldMap from '../../maps/world.json'
 
 const defaultState = Immutable.fromJS({
   features: WorldMap.features,
-  systems: [Coordinate, Canvas, Map],
+  systems: [Coordinate, Canvas, Map, Player],
   center: [0, 0],
   waterColor: '#b3d1ff',
   landColor: '#fff',
+  playerColor: '#ff0000',
   width: 550,
   height: 500,
   scale: 1

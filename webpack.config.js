@@ -94,7 +94,7 @@ module.exports = function (env) {
           loader: 'babel-loader',
           query: {
             presets: ['es2015'],
-            plugins: [['extensible-destructuring', {"mode": "optout", "impl": "immutable"}]]
+            plugins: [['extensible-destructuring', {"mode": "optout", "impl": "safe"}]]
           }
         },
       ],
