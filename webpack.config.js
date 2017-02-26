@@ -91,9 +91,11 @@ module.exports = function (env) {
         {
           test: /\.(js|jsx)$/,
           exclude: /node_modules/,
-          use: [
-            'babel-loader'
-          ],
+          loader: 'babel-loader',
+          query: {
+            presets: ['es2015'],
+            plugins: [['extensible-destructuring', {"mode": "optout", "impl": "immutable"}]]
+          }
         },
       ],
     },
