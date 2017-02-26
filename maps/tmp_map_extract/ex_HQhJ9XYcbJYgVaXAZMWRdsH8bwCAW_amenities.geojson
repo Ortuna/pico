@@ -1,0 +1,37 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+                                                                                
+"features": [
+{ "type": "Feature", "properties": { "id": 1.000000, "osm_id": 306011118.000000, "name": "District of Columbia Fire and Emergency Medical Services Engine Company 6", "type": "fire_station" }, "geometry": { "type": "Point", "coordinates": [ -77.016107751005393, 38.907691431589086 ] } },
+{ "type": "Feature", "properties": { "id": 2.000000, "osm_id": 358955759.000000, "name": "John F Cook Elementary School", "type": "school" }, "geometry": { "type": "Point", "coordinates": [ -77.010290039650727, 38.909349958770036 ] } },
+{ "type": "Feature", "properties": { "id": 3.000000, "osm_id": 358955056.000000, "name": "Webster School", "type": "school" }, "geometry": { "type": "Point", "coordinates": [ -77.025254419024463, 38.899833816459072 ] } },
+{ "type": "Feature", "properties": { "id": 4.000000, "osm_id": 358955554.000000, "name": "Margaret Washington Senior High School", "type": "school" }, "geometry": { "type": "Point", "coordinates": [ -77.010270006902147, 38.908889959923869 ] } },
+{ "type": "Feature", "properties": { "id": 5.000000, "osm_id": 358954721.000000, "name": "Bundy School", "type": "school" }, "geometry": { "type": "Point", "coordinates": [ -77.017198655703439, 38.908722657136536 ] } },
+{ "type": "Feature", "properties": { "id": 6.000000, "osm_id": 358956768.000000, "name": "Gonzaga College High School", "type": "school" }, "geometry": { "type": "Point", "coordinates": [ -77.010188870079418, 38.9018712894825 ] } },
+{ "type": "Feature", "properties": { "id": 7.000000, "osm_id": 358957117.000000, "name": "Walker School (historical)", "type": "school" }, "geometry": { "type": "Point", "coordinates": [ -77.015254221805222, 38.903167299351196 ] } },
+{ "type": "Feature", "properties": { "id": 8.000000, "osm_id": 358956434.000000, "name": "Immaculate Conception School", "type": "school" }, "geometry": { "type": "Point", "coordinates": [ -77.022350005755797, 38.907459923423424 ] } },
+{ "type": "Feature", "properties": { "id": 9.000000, "osm_id": 358960608.000000, "name": "For Love of Children Learning Center", "type": "school" }, "geometry": { "type": "Point", "coordinates": [ -77.022610012392249, 38.899159995262977 ] } },
+{ "type": "Feature", "properties": { "id": 10.000000, "osm_id": 358956188.000000, "name": "Blake School (historical)", "type": "school" }, "geometry": { "type": "Point", "coordinates": [ -77.009420668653576, 38.903167299351196 ] } },
+{ "type": "Feature", "properties": { "id": 11.000000, "osm_id": 358960185.000000, "name": "Armstrong Adult Education Center", "type": "school" }, "geometry": { "type": "Point", "coordinates": [ -77.013309620268984, 38.909000433407691 ] } },
+{ "type": "Feature", "properties": { "id": 12.000000, "osm_id": 358958489.000000, "name": "Slater-Langston Elementary School (historical)", "type": "school" }, "geometry": { "type": "Point", "coordinates": [ -77.010280065185952, 38.909719935976113 ] } },
+{ "type": "Feature", "properties": { "id": 13.000000, "osm_id": 358958727.000000, "name": "Montgomery Elementary School", "type": "school" }, "geometry": { "type": "Point", "coordinates": [ -77.018130052784073, 38.909999975361124 ] } },
+{ "type": "Feature", "properties": { "id": 14.000000, "osm_id": 358960440.000000, "name": "Pre-engineering School-within-a-School Charter - Dunbar", "type": "school" }, "geometry": { "type": "Point", "coordinates": [ -77.014804281242888, 38.908269699089033 ] } },
+{ "type": "Feature", "properties": { "id": 15.000000, "osm_id": 358960671.000000, "name": "Associates for Renewal in Education Public Charter School", "type": "school" }, "geometry": { "type": "Point", "coordinates": [ -77.010470082930894, 38.909359933234811 ] } },
+{ "type": "Feature", "properties": { "id": 16.000000, "osm_id": 358960547.000000, "name": "World Public Charter School of Washington", "type": "school" }, "geometry": { "type": "Point", "coordinates": [ -77.01495004253907, 38.897959958185623 ] } },
+{ "type": "Feature", "properties": { "id": 17.000000, "osm_id": 358960634.000000, "name": "Hyde Leadership Public Charter School", "type": "school" }, "geometry": { "type": "Point", "coordinates": [ -77.020735567385557, 38.908506571672717 ] } },
+{ "type": "Feature", "properties": { "id": 18.000000, "osm_id": 358961359.000000, "name": "Holy Redeemer School", "type": "school" }, "geometry": { "type": "Point", "coordinates": [ -77.01420002984311, 38.904899922556183 ] } },
+{ "type": "Feature", "properties": { "id": 19.000000, "osm_id": 358960716.000000, "name": "Cesar Chavez Public Policy Public Charter School", "type": "school" }, "geometry": { "type": "Point", "coordinates": [ -77.01526595646969, 38.907992174274959 ] } },
+{ "type": "Feature", "properties": { "id": 20.000000, "osm_id": 358961379.000000, "name": "Immaculate Conception Boys School", "type": "school" }, "geometry": { "type": "Point", "coordinates": [ -77.02240004571776, 38.90749998892062 ] } },
+{ "type": "Feature", "properties": { "id": 21.000000, "osm_id": 358960686.000000, "name": "Holy Redeemer Catholic School", "type": "school" }, "geometry": { "type": "Point", "coordinates": [ -77.014190055378336, 38.904839991948506 ] } },
+{ "type": "Feature", "properties": { "id": 22.000000, "osm_id": 358961626.000000, "name": "Armstrong Preparatory Center For Early Learning", "type": "school" }, "geometry": { "type": "Point", "coordinates": [ -77.01420002984311, 38.902199943905941 ] } },
+{ "type": "Feature", "properties": { "id": 23.000000, "osm_id": 358961989.000000, "name": "Washington Center", "type": "school" }, "geometry": { "type": "Point", "coordinates": [ -77.010300014115501, 38.908699942178941 ] } },
+{ "type": "Feature", "properties": { "id": 24.000000, "osm_id": 358961840.000000, "name": "Pre-Engineering School Within a School at Dunbar", "type": "school" }, "geometry": { "type": "Point", "coordinates": [ -77.014700010367406, 38.908499949969212 ] } },
+{ "type": "Feature", "properties": { "id": 25.000000, "osm_id": 559155754.000000, "name": "Sursum Corda Community Library", "type": "library" }, "geometry": { "type": "Point", "coordinates": [ -77.013433169521761, 38.906121836400814 ] } },
+{ "type": "Feature", "properties": { "id": 26.000000, "osm_id": 559147428.000000, "name": "Martin Luther King Junior Memorial Library", "type": "library" }, "geometry": { "type": "Point", "coordinates": [ -77.024766340802671, 38.898691279237504 ] } },
+{ "type": "Feature", "properties": { "id": 27.000000, "osm_id": 367142183.000000, "name": "Metropolitan Police Boys and Girls Clubs", "type": "police" }, "geometry": { "type": "Point", "coordinates": [ -77.012850040517975, 38.905409961364285 ] } },
+{ "type": "Feature", "properties": { "id": 28.000000, "osm_id": 358961632.000000, "name": "Armstrong Preparatory Center Number 2", "type": "school" }, "geometry": { "type": "Point", "coordinates": [ -77.01420002984311, 38.902199943905941 ] } },
+{ "type": "Feature", "properties": { "id": 29.000000, "osm_id": 358961974.000000, "name": "Ujamaa School", "type": "school" }, "geometry": { "type": "Point", "coordinates": [ -77.023300010661487, 38.910999936409752 ] } },
+{ "type": "Feature", "properties": { "id": 30.000000, "osm_id": 2788370146.000000, "name": "BP", "type": "fuel" }, "geometry": { "type": "Point", "coordinates": [ -77.023708544622181, 38.907787236742365 ] } }
+]
+}

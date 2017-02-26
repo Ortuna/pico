@@ -8,10 +8,7 @@ class Coordinate extends System {
   static get namespace() { return 'coordinate' }
   static init(state) {
     const bounds = this.bounds(state)
-
-    return state
-      .set('bounds', bounds)
-      .set('scale', 1)
+    return state.set('bounds', bounds)
   }
 
   static tick(state) { return state }

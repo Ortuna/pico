@@ -7,16 +7,20 @@ import Map from './Systems/Map'
 import Player from './Systems/Player'
 
 import WorldMap from '../../maps/world.json'
+import Buildings from '../../maps/buildings.json'
+
+const ZOOM = 10
 
 const defaultState = Immutable.fromJS({
-  features: WorldMap.features,
+  features: Buildings.features,
   systems: [Coordinate, Map, Canvas, Player],
   center: [0, 0],
   waterColor: '#b3d1ff',
   landColor: '#fff',
-  width: 550,
+  width: 475,
   height: 500,
-  scale: 1
+  zoom: ZOOM,
+  scale: 100
 })
 
 export default class {

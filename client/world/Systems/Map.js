@@ -23,8 +23,8 @@ const draw = (state) => {
         const coords = rawCoords.toJS()
         const point = cs.coordinateToPoint(state, coords[1], coords[0])
 
-        context.fillStyle = landColor
-        // context.fillStyle = '#'+Math.floor(Math.random()*16777215).toString(16)
+        // context.fillStyle = landColor
+        context.fillStyle = '#'+Math.floor(Math.random()*16777215).toString(16)
         if (index === 0) {
           context.beginPath()
           context.moveTo(point.x, point.y)
