@@ -32,8 +32,8 @@ const draw = (state) => {
           context.lineTo(point.x, point.y)
         }
       })
+      context.fill()
     })
-    context.fill()
   })
 }
 

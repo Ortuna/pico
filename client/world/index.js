@@ -10,11 +10,10 @@ import WorldMap from '../../maps/world.json'
 
 const defaultState = Immutable.fromJS({
   features: WorldMap.features,
-  systems: [Coordinate, Canvas, Map, Player],
+  systems: [Coordinate, Map, Canvas, Player],
   center: [0, 0],
   waterColor: '#b3d1ff',
   landColor: '#fff',
-  playerColor: '#ff0000',
   width: 550,
   height: 500,
   scale: 1
