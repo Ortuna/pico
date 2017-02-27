@@ -43,9 +43,11 @@ class Map extends System {
   }
 
   static tick(state) {
-    draw(state)
+    if (state.get('redraw') == false)
+      return state
 
-    return state
+    draw(state)
+    return state.set('redraw', false)
   }
 }
 

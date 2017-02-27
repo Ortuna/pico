@@ -6,7 +6,7 @@ window.onload = () => {
 
   const loop = () => {
     world.draw()
-    // window.requestAnimationFrame(loop)
+    window.requestAnimationFrame(loop)
   }
 
   loop()

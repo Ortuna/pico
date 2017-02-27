@@ -4,6 +4,8 @@ const RADIUS = 6378137
 const MAX = 85.0511287798
 const RADIANS = Math.PI / 180
 
+window.scale = 1
+
 class Coordinate extends System {
   static get namespace() { return 'coordinate' }
   static init(state) {
@@ -11,11 +13,12 @@ class Coordinate extends System {
     return state.set('bounds', bounds)
   }
 
-  static tick(state) { return state }
+  static tick(state) {
+     return state
+  }
 
   static mercator(latitude, longitude) {
     let point = {}
-
     point.x = RADIUS * longitude * RADIANS
     point.y = Math.max(Math.min(MAX, latitude), -MAX) * RADIANS
     point.y = RADIUS * Math.log(Math.tan((Math.PI / 4) + (point.y / 2)))
@@ -54,13 +57,15 @@ class Coordinate extends System {
     const { bounds, height, width, scale: mapScale } = state
 
     const point = this.projectCoordinate(mapScale, latitude, longitude)
-    const xScale = width / Math.abs(bounds.xMax - bounds.xMin)
-    const yScale = height / Math.abs(bounds.yMax - bounds.yMin)
-    const scale = xScale < yScale ? xScale : yScale
 
+    // const xScale = width / Math.abs(bounds.xMax - bounds.xMin)
+    // const yScale = height / Math.abs(bounds.yMax - bounds.yMin)
+    // const scale = xScale < yScale ? xScale : yScale
+
+    // console.log(scale);return
     return {
-      x: (point.x - bounds.xMin) * scale,
-      y: (bounds.yMax - point.y) * scale
+      x: (point.x - bounds.xMin),
+      y: (bounds.yMax - point.y)
     };
   }
 
