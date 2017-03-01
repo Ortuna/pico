@@ -1,6 +1,6 @@
 import System from '../Utils/System'
 
-const PIXELATIONSIZE = 17
+const PIXELATIONSIZE = 20
 
 const createCanvas = (width, height) => {
   let canvas = document.createElement('canvas')

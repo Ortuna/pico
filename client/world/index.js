@@ -1,8 +1,8 @@
 import Immutable from 'immutable'
 
 import System from './Utils/System'
-import Coordinate from './Systems/Coordinate'
 import Canvas from './Systems/Canvas'
+import Coordinate from './Systems/Coordinate'
 import Map from './Systems/Map'
 import Player from './Systems/Player'
 
@@ -13,11 +13,12 @@ const defaultState = Immutable.fromJS({
   features: Buildings.features,
   systems: [Coordinate, Map, Canvas, Player],
   center: [0, 0],
-  waterColor: '#b3d1ff',
+  waterColor: '#000',
   landColor: '#fff',
   width: 475,
   height: 500,
-  scale: 2.5
+  // scale: 1
+  scale: .25 // full
 })
 
 export default class {

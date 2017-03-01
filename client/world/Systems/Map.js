@@ -1,4 +1,5 @@
 import System from '../Utils/System'
+import Coordinate from '../Utils/Coordinate'
 
 const draw = (state) => {
   const {
@@ -12,8 +13,6 @@ const draw = (state) => {
     bounds
   } = state
 
-  const cs = System.getSystem(state, 'coordinate')
-
   context.fillStyle = waterColor
   context.fillRect(0, 0, width, height)
 
@@ -21,7 +20,7 @@ const draw = (state) => {
     feature.get('geometry').get('coordinates').map((polygon) => {
       polygon.map((rawCoords, index) => {
         const coords = rawCoords.toJS()
-        const point = cs.coordinateToPoint(state, coords[1], coords[0])
+        const point = Coordinate.coordinateToPoint(state, coords[1], coords[0])
 
         // context.fillStyle = landColor
         context.fillStyle = '#'+Math.floor(Math.random()*16777215).toString(16)
@@ -43,8 +42,7 @@ class Map extends System {
   }
 
   static tick(state) {
-    if (state.get('redraw') == false)
-      return state
+    if (state.get('redraw') == false) return state
 
     draw(state)
     return state.set('redraw', false)
