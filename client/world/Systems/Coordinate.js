@@ -2,9 +2,10 @@ import System from '../Utils/System'
 import Coordinate from '../Utils/Coordinate'
 
 class CoordinateSystem extends System {
-  static get namespace() { return 'canvas' }
+  static get namespace() { return 'cordinate' }
 
   static init(state) {
+    console.log(Coordinate.getBounds(state))
     return state.set('bounds', Coordinate.getBounds(state))
   }
 

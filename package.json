@@ -42,6 +42,7 @@
   },
   "dependencies": {
     "babel-plugin-extensible-destructuring": "^4.0.1",
-    "extensible-runtime": "^4.0.1"
+    "extensible-runtime": "^4.0.1",
+    "keyboardjs": "^2.3.3"
   }
 }

@@ -4,15 +4,25 @@ const getRandom = (min, max) => {
   return Math.random() * (max - min) + min;
 }
 
-const randomlyMove = (player) => {
-  if (player.x < 500) {
-    player.x += 3
-  } else {
-    player.x = 0
-  }
+const movePlayer = (keys, player) => {
+  if (keys.length === 0) return player
 
-  player.y += getRandom(1, 3)
-  player.y -= getRandom(1, 3)
+  keys.map((event) => {
+    switch(event.key) {
+      case 'ArrowUp':
+        player.y -= 5
+        break
+      case 'ArrowDown':
+        player.y += 5
+        break
+      case 'ArrowLeft':
+        player.x -= 5
+        break
+      case 'ArrowRight':
+        player.x += 5
+        break
+    }
+  })
 
   return player
 }
@@ -39,13 +49,14 @@ class Player extends System {
   static tick(state) {
     const {
       player,
+      keys,
       canvas: { context }
     } = state
 
     drawPlayer(context, player)
 
     return state
-      .set('player', randomlyMove(player))
+      .set('player', movePlayer(keys, player))
   }
 }
 

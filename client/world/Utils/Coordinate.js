@@ -44,7 +44,7 @@ class Coordinate {
   static coordinateToPoint(state, latitude, longitude) {
     const { bounds, height, width, scale: mapScale } = state
 
-    const point = projectCoordinate(mapScale, latitude, longitude)
+    const point = projectCoordinate(mapScale, latitude, longitude - 0.002)
 
     // const xScale = width / Math.abs(bounds.xMax - bounds.xMin)
     // const yScale = height / Math.abs(bounds.yMax - bounds.yMin)

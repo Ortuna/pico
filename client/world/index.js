@@ -5,20 +5,21 @@ import Canvas from './Systems/Canvas'
 import Coordinate from './Systems/Coordinate'
 import Map from './Systems/Map'
 import Player from './Systems/Player'
+import Keypress from './Systems/Keypress'
 
 import WorldMap from '../../maps/world.json'
 import Buildings from '../../maps/buildings.json'
 
 const defaultState = Immutable.fromJS({
   features: Buildings.features,
-  systems: [Coordinate, Map, Canvas, Player],
+  systems: [Coordinate, Map, Canvas, Player, Keypress],
   center: [0, 0],
   waterColor: '#000',
   landColor: '#fff',
   width: 475,
   height: 500,
   // scale: 1
-  scale: .25 // full
+  scale: 0.99 // full
 })
 
 export default class {
