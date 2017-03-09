@@ -1,25 +1,46 @@
 import System from '../Utils/System'
 
-const getRandom = (min, max) => {
-  return Math.random() * (max - min) + min;
+const SCALE_OFFSET = 0.25
+const OFFSET = 0.00001
+
+const setRedraw = (state) => {
+  return true
 }
 
-const movePlayer = (keys, player) => {
+const zoomMap = ({ keys, scale }) => {
+  if (keys.length === 0) return scale
+
+  keys.map((event) => {
+    switch(event.key) {
+      case '-':
+        scale -= SCALE_OFFSET
+        break
+      case '=':
+        scale += SCALE_OFFSET
+        break
+    }
+  })
+
+  return scale
+}
+
+const movePlayer = (state) => {
+  const { keys, player } = state
   if (keys.length === 0) return player
 
   keys.map((event) => {
     switch(event.key) {
       case 'ArrowUp':
-        player.y -= 5
+        player.y -= OFFSET
         break
       case 'ArrowDown':
-        player.y += 5
+        player.y += OFFSET
         break
       case 'ArrowLeft':
-        player.x -= 5
+        player.x -= OFFSET
         break
       case 'ArrowRight':
-        player.x += 5
+        player.x += OFFSET
         break
     }
   })
@@ -27,10 +48,14 @@ const movePlayer = (keys, player) => {
   return player
 }
 
-const drawPlayer = (context, player) => {
-  const { x, y, size, playerColor } = player
+const drawPlayer = ({ buffer , player, width, height }) => {
+  const { context } = buffer
+  const { size, playerColor } = player
+
+  context.beginPath()
   context.fillStyle = playerColor
-  context.fillRect(x, y, size, size)
+  context.arc(width / 2, height / 2, size, 0, 2 * Math.PI, false)
+  context.fill()
 }
 
 class Player extends System {
@@ -38,25 +63,21 @@ class Player extends System {
   static init(state) {
     const player = {
       playerColor: '#ff0000',
-      size: 5,
-      x: 150,
-      y: 200
+      size: 10,
+      x: 0,
+      y: 0
     }
 
     return state.set('player', player)
   }
 
   static tick(state) {
-    const {
-      player,
-      keys,
-      canvas: { context }
-    } = state
-
-    drawPlayer(context, player)
+    drawPlayer(state)
 
     return state
-      .set('player', movePlayer(keys, player))
+      .set('player', movePlayer(state))
+      .set('scale', zoomMap(state))
+      .set('redraw', setRedraw(state))
   }
 }
 

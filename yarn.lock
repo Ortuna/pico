@@ -3276,6 +3276,10 @@ sass-loader@^6.0.2:
     lodash.tail "^4.1.1"
     pify "^2.3.0"
 
+seedrandom@^2.4.2:
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/seedrandom/-/seedrandom-2.4.2.tgz#18d78c41287d13aff8eadb29e235938b248aa9ff"
+
 select-hose@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/select-hose/-/select-hose-2.0.0.tgz#625d8658f865af43ec962bfc376a37359a4994ca"

@@ -12,14 +12,13 @@ import Buildings from '../../maps/buildings.json'
 
 const defaultState = Immutable.fromJS({
   features: Buildings.features,
-  systems: [Coordinate, Map, Canvas, Player, Keypress],
+  systems: [Coordinate, Map, Player, Canvas, Keypress],
   center: [0, 0],
   waterColor: '#000',
   landColor: '#fff',
   width: 475,
   height: 500,
-  // scale: 1
-  scale: 0.99 // full
+  scale: 5
 })
 
 export default class {

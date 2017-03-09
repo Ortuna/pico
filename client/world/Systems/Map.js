@@ -1,5 +1,8 @@
 import System from '../Utils/System'
 import Coordinate from '../Utils/Coordinate'
+import Seedrandom from 'seedrandom'
+
+const rng = new Math.seedrandom('hello.')
 
 const draw = (state) => {
   const {
@@ -10,7 +13,8 @@ const draw = (state) => {
     height,
     canvas: { canvas },
     buffer: { context },
-    bounds
+    bounds,
+    player,
   } = state
 
   context.fillStyle = waterColor
@@ -20,10 +24,15 @@ const draw = (state) => {
     feature.get('geometry').get('coordinates').map((polygon) => {
       polygon.map((rawCoords, index) => {
         const coords = rawCoords.toJS()
-        const point = Coordinate.coordinateToPoint(state, coords[1], coords[0])
+        const point =
+          Coordinate.coordinateToPoint(
+            state,
+            coords[1] + player.y,
+            coords[0] - player.x
+          )
 
         // context.fillStyle = landColor
-        context.fillStyle = '#'+Math.floor(Math.random()*16777215).toString(16)
+        context.fillStyle = '#'+Math.floor(rng()*16777215).toString(16)
         if (index === 0) {
           context.beginPath()
           context.moveTo(point.x, point.y)
@@ -45,6 +54,7 @@ class Map extends System {
     if (state.get('redraw') == false) return state
 
     draw(state)
+
     return state.set('redraw', false)
   }
 }
